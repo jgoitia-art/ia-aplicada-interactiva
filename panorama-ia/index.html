@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Una introducción interactiva al panorama de la inteligencia artificial: evolución, conceptos y decisiones empresariales.">
+  <title>Panorama de la IA · IA aplicada</title>
+  <style>
+    :root {
+      --navy: #10283f;
+      --navy-2: #173d59;
+      --cream: #f4f0e8;
+      --paper: #fffdf8;
+      --teal: #1d827b;
+      --coral: #e6644e;
+      --gold: #e8b24d;
+      --ink: #172733;
+      --muted: #60717c;
+      --line: #d9ddd9;
+      --shadow: 0 18px 44px rgba(16,40,63,.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    button { font: inherit; }
+    .hero {
+      min-height: 76vh;
+      display: grid;
+      align-items: end;
+      padding: clamp(28px, 7vw, 92px);
+      color: white;
+      background:
+        radial-gradient(circle at 84% 18%, rgba(232,178,77,.40), transparent 24%),
+        radial-gradient(circle at 72% 65%, rgba(29,130,123,.38), transparent 28%),
+        linear-gradient(135deg, var(--navy), var(--navy-2));
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      width: min(42vw, 520px);
+      aspect-ratio: 1;
+      position: absolute;
+      right: -8vw;
+      top: -8vw;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 50%;
+      box-shadow: 0 0 0 60px rgba(255,255,255,.035), 0 0 0 120px rgba(255,255,255,.025);
+    }
+    .hero-content { max-width: 920px; position: relative; z-index: 1; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .16em; font-weight: 750; font-size: .78rem; color: #b7e7df; }
+    h1 { margin: .25em 0; font-size: clamp(3rem, 8vw, 7.4rem); line-height: .92; letter-spacing: -.055em; }
+    .lede { max-width: 720px; margin: 24px 0 0; font-size: clamp(1.1rem, 2vw, 1.55rem); color: rgba(255,255,255,.82); }
+    .series { margin-top: 34px; display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; }
+    main { width: min(1160px, calc(100% - 36px)); margin: 0 auto; padding: 72px 0 90px; }
+    .intro { display: grid; grid-template-columns: 1.1fr .9fr; gap: 42px; align-items: start; margin-bottom: 70px; }
+    h2 { margin: 0 0 16px; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.03; letter-spacing: -.04em; }
+    .intro p { font-size: 1.13rem; color: var(--muted); }
+    .thesis { padding: 26px; background: var(--paper); border-left: 5px solid var(--coral); box-shadow: var(--shadow); }
+    .thesis strong { display: block; margin-bottom: 8px; color: var(--coral); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; }
+    .timeline-wrap { background: var(--paper); padding: clamp(22px, 4vw, 44px); box-shadow: var(--shadow); }
+    .timeline-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 26px; }
+    .timeline-head p { max-width: 520px; margin: 0; color: var(--muted); }
+    .timeline-tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .timeline-tabs button {
+      border: 1px solid var(--line); background: white; color: var(--ink); padding: 12px 8px; cursor: pointer; border-radius: 4px; font-weight: 700;
+    }
+    .timeline-tabs button:hover, .timeline-tabs button:focus-visible { border-color: var(--teal); outline: 3px solid rgba(29,130,123,.18); }
+    .timeline-tabs button[aria-selected="true"] { background: var(--teal); color: white; border-color: var(--teal); }
+    .era { margin-top: 12px; padding: 28px; min-height: 190px; background: linear-gradient(135deg, #eef7f5, #fff); border: 1px solid #cfe4df; }
+    .era .year { color: var(--teal); font-weight: 800; letter-spacing: .08em; }
+    .era h3 { margin: 6px 0 10px; font-size: 1.6rem; }
+    .era p { margin: 0; color: var(--muted); max-width: 780px; }
+    .concepts { margin-top: 78px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { border-top: 5px solid var(--teal); background: var(--paper); padding: 26px; min-height: 255px; box-shadow: 0 10px 26px rgba(16,40,63,.08); }
+    .card:nth-child(2) { border-color: var(--coral); }
+    .card:nth-child(3) { border-color: var(--gold); }
+    .card .num { font-size: 3.3rem; line-height: 1; font-weight: 850; color: #dfe6e5; }
+    .card h3 { font-size: 1.3rem; margin: 12px 0 8px; }
+    .card p { color: var(--muted); margin: 0; }
+    .decision { margin-top: 78px; background: var(--navy); color: white; }
+    .decision-copy { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(26px, 5vw, 68px); align-items: end; padding: clamp(26px, 5vw, 52px); }
+    .decision-copy h2 { margin-bottom: 0; }
+    .decision-copy p { margin: 0; color: rgba(255,255,255,.74); font-size: 1.08rem; }
+    .route { padding: 0 clamp(26px, 5vw, 52px) clamp(30px, 5vw, 52px); }
+    .route-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .route-step { min-height: 150px; padding: 20px; text-align: left; color: white; border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.055); cursor: pointer; position: relative; }
+    .route-step:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 50%; z-index: 2; width: 26px; height: 26px; display: grid; place-items: center; color: var(--navy); background: var(--gold); border-radius: 50%; transform: translateY(-50%); }
+    .route-step:hover, .route-step:focus-visible { background: rgba(255,255,255,.12); outline: 3px solid rgba(232,178,77,.38); }
+    .route-step[aria-pressed="true"] { background: var(--teal); border-color: #70c8be; }
+    .route-num { display: block; margin-bottom: 24px; color: #9edbd4; font-size: .76rem; font-weight: 800; letter-spacing: .12em; }
+    .route-step[aria-pressed="true"] .route-num { color: white; }
+    .route-step strong { display: block; font-size: 1.03rem; line-height: 1.25; }
+    .route-detail { min-height: 76px; margin-top: 12px; padding: 18px 20px; color: #d9ebe8; background: rgba(0,0,0,.18); border-left: 4px solid var(--gold); }
+    .route-detail strong { color: white; }
+    footer { padding: 26px 18px; text-align: center; color: var(--muted); border-top: 1px solid var(--line); }
+    @media (max-width: 760px) {
+      .hero { min-height: 68vh; }
+      .intro, .decision-copy { grid-template-columns: 1fr; }
+      .timeline-head { display: block; }
+      .timeline-tabs { grid-template-columns: repeat(2, 1fr); }
+      .cards { grid-template-columns: 1fr; }
+      .card { min-height: 0; }
+      .route-steps { grid-template-columns: 1fr; }
+      .route-step { min-height: 0; }
+      .route-step:not(:last-child)::after { content: "↓"; top: auto; right: 18px; bottom: -18px; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">IA aplicada · Entrega 01</div>
+      <h1>Panorama<br>de la IA</h1>
+      <p class="lede">De los sistemas expertos a los agentes: una historia de expectativas, datos, cómputo y mejores arquitecturas.</p>
+      <div class="series">Aprendizaje 01 <span aria-hidden="true">/</span> 45</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="idea-title">
+      <div>
+        <div class="eyebrow" style="color:var(--teal)">La idea central</div>
+        <h2 id="idea-title">La IA no evolucionó en línea recta.</h2>
+        <p>Cada salto combinó avances técnicos con nuevas expectativas. Entender ese patrón ayuda a separar una capacidad real de una promesa inflada.</p>
+      </div>
+      <aside class="thesis">
+        <strong>Criterio práctico</strong>
+        Antes de elegir una herramienta, define la capacidad, el contexto, el riesgo y el control humano necesario.
+      </aside>
+    </section>
+
+    <section class="timeline-wrap" aria-labelledby="timeline-title">
+      <div class="timeline-head">
+        <div>
+          <div class="eyebrow" style="color:var(--teal)">Explora</div>
+          <h2 id="timeline-title">Cinco cambios de paradigma</h2>
+        </div>
+        <p>Selecciona una etapa para ver por qué cambió la trayectoria de la IA.</p>
+      </div>
+      <div class="timeline-tabs" role="tablist" aria-label="Etapas de la historia de la IA">
+        <button role="tab" aria-selected="true" data-era="0">1956</button>
+        <button role="tab" aria-selected="false" data-era="1">1974–94</button>
+        <button role="tab" aria-selected="false" data-era="2">2012</button>
+        <button role="tab" aria-selected="false" data-era="3">2017</button>
+        <button role="tab" aria-selected="false" data-era="4">2022+</button>
+      </div>
+      <div class="era" role="tabpanel" aria-live="polite">
+        <div class="year" id="era-year">1956</div>
+        <h3 id="era-title">La IA adquiere un nombre</h3>
+        <p id="era-copy">La conferencia de Dartmouth formaliza el campo y concentra grandes expectativas sobre máquinas capaces de razonar.</p>
+      </div>
+    </section>
+
+    <section class="concepts" aria-labelledby="concept-title">
+      <div class="eyebrow" style="color:var(--teal)">Tres distinciones</div>
+      <h2 id="concept-title">Para hablar de IA con precisión</h2>
+      <div class="cards">
+        <article class="card"><div class="num">01</div><h3>LLM ≠ base de datos</h3><p>Predice tokens a partir de patrones. Puede producir una respuesta fluida y, aun así, ser falsa.</p></article>
+        <article class="card"><div class="num">02</div><h3>Agente ≠ chatbot</h3><p>Un agente persigue objetivos, planifica pasos y utiliza herramientas. Esa capacidad exige límites y supervisión.</p></article>
+        <article class="card"><div class="num">03</div><h3>Foresight ≠ predicción</h3><p>Las señales, tendencias y fuerzas profundas permiten construir escenarios; no certificar un futuro único.</p></article>
+      </div>
+    </section>
+
+    <section class="decision" aria-labelledby="decision-title">
+      <div class="decision-copy">
+        <div>
+          <div class="eyebrow">Del concepto al diseño</div>
+          <h2 id="decision-title">La confianza se construye por capas.</h2>
+        </div>
+        <p>Para responder sobre documentación interna no basta con añadir un chatbot. Cada capa reduce una incertidumbre distinta.</p>
+      </div>
+      <div class="route">
+        <div class="route-steps" aria-label="Ruta para construir respuestas fiables">
+          <button class="route-step" aria-pressed="true" data-route="0"><span class="route-num">CAPA 01</span><strong>Fuentes<br>verificadas</strong></button>
+          <button class="route-step" aria-pressed="false" data-route="1"><span class="route-num">CAPA 02</span><strong>Contexto<br>recuperado</strong></button>
+          <button class="route-step" aria-pressed="false" data-route="2"><span class="route-num">CAPA 03</span><strong>Respuesta<br>con citas</strong></button>
+          <button class="route-step" aria-pressed="false" data-route="3"><span class="route-num">CAPA 04</span><strong>Validación<br>humana</strong></button>
+        </div>
+        <div class="route-detail" id="route-detail" aria-live="polite"><strong>Fuentes verificadas.</strong> Define qué documentos son válidos, quién los mantiene y cuándo deben actualizarse.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>IA aplicada · Entrega 1 de 45</footer>
+  <script>
+    const eras = [
+      ["1956", "La IA adquiere un nombre", "La conferencia de Dartmouth formaliza el campo y concentra grandes expectativas sobre máquinas capaces de razonar."],
+      ["1974–1994", "Los inviernos de la IA", "Las promesas superan las capacidades disponibles. La financiación cae y el campo aprende el coste de inflar expectativas."],
+      ["2012", "El deep learning acelera", "AlexNet muestra el impacto de combinar grandes datasets, redes profundas y procesamiento con GPU."],
+      ["2017", "Llegan los Transformers", "La arquitectura de atención sienta las bases de los grandes modelos de lenguaje modernos."],
+      ["2022+", "La IA se vuelve interfaz", "La IA generativa se populariza y abre el paso a sistemas multimodales y agentes que usan herramientas." ]
+    ];
+    const tabs = document.querySelectorAll('[role="tab"]');
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      tabs.forEach((item) => item.setAttribute('aria-selected', 'false'));
+      tab.setAttribute('aria-selected', 'true');
+      const [year, title, copy] = eras[Number(tab.dataset.era)];
+      document.querySelector('#era-year').textContent = year;
+      document.querySelector('#era-title').textContent = title;
+      document.querySelector('#era-copy').textContent = copy;
+    }));
+    const routeDetails = [
+      '<strong>Fuentes verificadas.</strong> Define qué documentos son válidos, quién los mantiene y cuándo deben actualizarse.',
+      '<strong>Contexto recuperado.</strong> Selecciona los fragmentos relevantes para cada consulta en lugar de confiar en conocimiento genérico.',
+      '<strong>Respuesta con citas.</strong> Permite comprobar cada afirmación y regresar al documento que la respalda.',
+      '<strong>Validación humana.</strong> Reserva la aprobación para decisiones sensibles, excepciones o respuestas con baja confianza.'
+    ];
+    document.querySelectorAll('[data-route]').forEach((button) => button.addEventListener('click', () => {
+      document.querySelectorAll('[data-route]').forEach((item) => item.setAttribute('aria-pressed', 'false'));
+      button.setAttribute('aria-pressed', 'true');
+      document.querySelector('#route-detail').innerHTML = routeDetails[Number(button.dataset.route)];
+    }));
+  </script>
+</body>
+</html>
