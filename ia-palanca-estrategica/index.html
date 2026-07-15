@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Una demo no demuestra valor. Explora el ciclo que convierte una oportunidad de IA en resultados medibles.">
+  <title>IA como palanca estratégica · IA aplicada</title>
+  <link rel="canonical" href="https://jgoitia-art.github.io/ia-aplicada-interactiva/ia-palanca-estrategica/">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="IA aplicada">
+  <meta property="og:url" content="https://jgoitia-art.github.io/ia-aplicada-interactiva/ia-palanca-estrategica/">
+  <meta property="og:title" content="IA como palanca estratégica · IA aplicada">
+  <meta property="og:description" content="Una demo no demuestra valor. Explora el ciclo que convierte una oportunidad de IA en resultados medibles.">
+  <meta property="og:image" content="https://jgoitia-art.github.io/ia-aplicada-interactiva/ia-palanca-estrategica/social-preview.png">
+  <meta property="og:image:secure_url" content="https://jgoitia-art.github.io/ia-aplicada-interactiva/ia-palanca-estrategica/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="2400">
+  <meta property="og:image:height" content="1260">
+  <meta property="og:image:alt" content="IA como palanca estratégica: de oportunidad a valor, con el problema antes que la tecnología.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IA como palanca estratégica · IA aplicada">
+  <meta name="twitter:description" content="Una demo no demuestra valor. Explora el ciclo que convierte una oportunidad de IA en resultados medibles.">
+  <meta name="twitter:image" content="https://jgoitia-art.github.io/ia-aplicada-interactiva/ia-palanca-estrategica/social-preview.png">
+  <style>
+    :root { --navy:#10283f; --navy-2:#173d59; --cream:#f4f0e8; --paper:#fffdf8; --teal:#1d827b; --coral:#e6644e; --gold:#e8b24d; --ink:#172733; --muted:#60717c; --line:#d9ddd9; --shadow:0 18px 44px rgba(16,40,63,.12); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--cream); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.55; }
+    button,input { font:inherit; }
+    .hero { min-height:76vh; display:grid; align-items:end; padding:clamp(28px,7vw,92px); color:white; background:radial-gradient(circle at 82% 20%,rgba(232,178,77,.36),transparent 23%),radial-gradient(circle at 72% 70%,rgba(29,130,123,.40),transparent 28%),linear-gradient(135deg,var(--navy),var(--navy-2)); position:relative; overflow:hidden; }
+    .hero::after { content:""; width:min(42vw,520px); aspect-ratio:1; position:absolute; right:-8vw; top:-8vw; border:1px solid rgba(255,255,255,.24); border-radius:50%; box-shadow:0 0 0 60px rgba(255,255,255,.035),0 0 0 120px rgba(255,255,255,.025); }
+    .hero-content { max-width:980px; position:relative; z-index:1; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.16em; font-weight:750; font-size:.78rem; color:#b7e7df; }
+    h1 { margin:.25em 0; max-width:960px; font-size:clamp(3rem,7.3vw,7rem); line-height:.92; letter-spacing:-.055em; }
+    .lede { max-width:760px; margin:24px 0 0; font-size:clamp(1.1rem,2vw,1.55rem); color:rgba(255,255,255,.82); }
+    .series { margin-top:34px; display:inline-flex; align-items:center; gap:10px; padding:9px 14px; border:1px solid rgba(255,255,255,.25); border-radius:999px; }
+    main { width:min(1160px,calc(100% - 36px)); margin:0 auto; padding:72px 0 90px; }
+    h2 { margin:0 0 16px; font-size:clamp(2rem,4vw,3.5rem); line-height:1.03; letter-spacing:-.04em; }
+    .intro { display:grid; grid-template-columns:1.1fr .9fr; gap:42px; align-items:start; margin-bottom:70px; }
+    .intro p { font-size:1.13rem; color:var(--muted); }
+    .thesis { padding:26px; background:var(--paper); border-left:5px solid var(--coral); box-shadow:var(--shadow); }
+    .thesis strong { display:block; margin-bottom:8px; color:var(--coral); text-transform:uppercase; letter-spacing:.1em; font-size:.8rem; }
+    .cycle-wrap { background:var(--paper); padding:clamp(22px,4vw,44px); box-shadow:var(--shadow); }
+    .cycle-head { display:flex; justify-content:space-between; gap:20px; align-items:end; margin-bottom:26px; }
+    .cycle-head p { max-width:500px; margin:0; color:var(--muted); }
+    .cycle-tabs { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; }
+    .cycle-tabs button { min-height:72px; border:1px solid var(--line); background:white; color:var(--ink); padding:12px 8px; cursor:pointer; border-radius:4px; font-weight:750; }
+    .cycle-tabs button:hover,.cycle-tabs button:focus-visible { border-color:var(--teal); outline:3px solid rgba(29,130,123,.18); }
+    .cycle-tabs button[aria-selected="true"] { background:var(--teal); color:white; border-color:var(--teal); }
+    .stage { margin-top:12px; padding:28px; min-height:178px; background:linear-gradient(135deg,#eef7f5,#fff); border:1px solid #cfe4df; }
+    .stage .number { color:var(--teal); font-weight:800; letter-spacing:.08em; }
+    .stage h3 { margin:6px 0 10px; font-size:1.6rem; }
+    .stage p { margin:0; color:var(--muted); max-width:800px; }
+    .distinctions { margin-top:78px; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card { border-top:5px solid var(--teal); background:var(--paper); padding:26px; min-height:275px; box-shadow:0 10px 26px rgba(16,40,63,.08); }
+    .card:nth-child(2) { border-color:var(--coral); }
+    .card:nth-child(3) { border-color:var(--gold); }
+    .card .num { font-size:3.3rem; line-height:1; font-weight:850; color:#dfe6e5; }
+    .card h3 { font-size:1.3rem; margin:12px 0 8px; }
+    .card p { color:var(--muted); margin:0; }
+    .evaluator { margin-top:78px; display:grid; grid-template-columns:.85fr 1.15fr; background:var(--navy); color:white; }
+    .evaluator-copy { padding:clamp(28px,5vw,52px); }
+    .evaluator-copy p { color:rgba(255,255,255,.74); }
+    .controls { padding:clamp(28px,5vw,52px); background:rgba(255,255,255,.06); }
+    .control { margin-bottom:24px; }
+    .control-row { display:flex; justify-content:space-between; gap:16px; margin-bottom:8px; }
+    .control output { color:var(--gold); font-weight:850; }
+    input[type="range"] { width:100%; accent-color:var(--teal); }
+    .verdict { padding:19px 20px; border-left:4px solid var(--gold); background:rgba(0,0,0,.18); }
+    .verdict strong { display:block; margin-bottom:5px; font-size:1.15rem; color:white; }
+    .verdict span { color:#d9ebe8; }
+    footer { padding:26px 18px; text-align:center; color:var(--muted); border-top:1px solid var(--line); }
+    @media (max-width:820px) { .intro,.evaluator { grid-template-columns:1fr; } .cycle-head { display:block; } .cycle-tabs { grid-template-columns:repeat(2,1fr); } .cards { grid-template-columns:1fr; } .card { min-height:0; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">IA aplicada · Entrega 02</div>
+      <h1>IA como palanca estratégica</h1>
+      <p class="lede">De una oportunidad real a un resultado medible: el camino exige mucho más que desplegar tecnología.</p>
+      <div class="series">Estrategia <span aria-hidden="true">·</span> Adopción <span aria-hidden="true">·</span> Valor</div>
+    </div>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="idea-title">
+      <div>
+        <div class="eyebrow" style="color:var(--teal)">La idea central</div>
+        <h2 id="idea-title">Una demo no demuestra valor.</h2>
+        <p>La tecnología se convierte en palanca cuando resuelve un problema relevante, supera las restricciones reales y cambia un resultado que la organización sabe capturar.</p>
+      </div>
+      <aside class="thesis"><strong>Pregunta estratégica</strong>¿Qué problema merece resolverse y qué evidencia demostraría que la inversión funciona?</aside>
+    </section>
+    <section class="cycle-wrap" aria-labelledby="cycle-title">
+      <div class="cycle-head">
+        <div><div class="eyebrow" style="color:var(--teal)">Explora el ciclo</div><h2 id="cycle-title">De oportunidad a valor</h2></div>
+        <p>Selecciona una etapa para ver la pregunta que debe quedar resuelta antes de avanzar.</p>
+      </div>
+      <div class="cycle-tabs" role="tablist" aria-label="Ciclo de transformación con IA">
+        <button role="tab" aria-selected="true" data-stage="0">Oportunidad</button>
+        <button role="tab" aria-selected="false" data-stage="1">Business case</button>
+        <button role="tab" aria-selected="false" data-stage="2">Madurez</button>
+        <button role="tab" aria-selected="false" data-stage="3">Roadmap</button>
+        <button role="tab" aria-selected="false" data-stage="4">Adopción</button>
+        <button role="tab" aria-selected="false" data-stage="5">Valor</button>
+      </div>
+      <div class="stage" role="tabpanel" aria-live="polite">
+        <div class="number" id="stage-number">ETAPA 01</div><h3 id="stage-title">Oportunidad</h3><p id="stage-copy">Define el problema, el usuario, el proceso actual y una referencia inicial. La herramienta todavía no es la decisión.</p>
+      </div>
+    </section>
+    <section class="distinctions" aria-labelledby="distinctions-title">
+      <div class="eyebrow" style="color:var(--teal)">Tres distinciones</div><h2 id="distinctions-title">Para no confundir actividad con progreso</h2>
+      <div class="cards">
+        <article class="card"><div class="num">01</div><h3>Oportunidad ≠ idea tecnológica</h3><p>La oportunidad parte de una necesidad y compara alternativas. La idea tecnológica parte de una herramienta que busca dónde encajar.</p></article>
+        <article class="card"><div class="num">02</div><h3>PoC ≠ piloto</h3><p><strong>PoC</strong> significa <em>Proof of Concept</em> o prueba de concepto. Valida la posibilidad técnica; el piloto prueba uso, resultado y riesgo con personas y procesos reales.</p></article>
+        <article class="card"><div class="num">03</div><h3>Despliegue ≠ adopción</h3><p>Licencias y accesos miden disponibilidad. La adopción se observa en comportamientos sostenidos y resultados.</p></article>
+      </div>
+    </section>
+    <section class="evaluator" aria-labelledby="evaluator-title">
+      <div class="evaluator-copy">
+        <div class="eyebrow">Evalúa una iniciativa</div><h2 id="evaluator-title">¿Merece avanzar?</h2>
+        <p>Ajusta las tres variables. El resultado no sustituye un business case; obliga a hacer explícitos los criterios de priorización.</p>
+      </div>
+      <div class="controls">
+        <div class="control"><div class="control-row"><label for="impact">Impacto esperado</label><output id="impact-value">3/5</output></div><input id="impact" type="range" min="1" max="5" value="3"></div>
+        <div class="control"><div class="control-row"><label for="feasibility">Factibilidad</label><output id="feasibility-value">3/5</output></div><input id="feasibility" type="range" min="1" max="5" value="3"></div>
+        <div class="control"><div class="control-row"><label for="risk">Riesgo y dependencia</label><output id="risk-value">3/5</output></div><input id="risk" type="range" min="1" max="5" value="3"></div>
+        <div class="verdict" aria-live="polite"><strong id="verdict-title">Validar antes de escalar</strong><span id="verdict-copy">El potencial existe, pero faltan evidencias para comprometer una inversión mayor.</span></div>
+      </div>
+    </section>
+  </main>
+  <footer>IA aplicada · Entrega 2 de 45</footer>
+  <script>
+    const stages = [
+      ["ETAPA 01","Oportunidad","Define el problema, el usuario, el proceso actual y una referencia inicial. La herramienta todavía no es la decisión."],
+      ["ETAPA 02","Business case","Conecta impacto, factibilidad, riesgos, coste total y beneficios realizables. Las horas liberadas no son automáticamente ahorro."],
+      ["ETAPA 03","Madurez","Identifica la capacidad que limita el escalado: datos, talento, tecnología, operación o gobernanza."],
+      ["ETAPA 04","Roadmap","Secuencia iniciativas y dependencias. Asigna responsables, recursos, hitos y decisiones de continuidad."],
+      ["ETAPA 05","Adopción","Integra la capacidad en tareas, roles e incentivos. Mide uso efectivo, no solo disponibilidad."],
+      ["ETAPA 06","Valor","Comprueba el resultado frente a la referencia inicial y decide si escalar, corregir o detener." ]
+    ];
+    const tabs = document.querySelectorAll('[role="tab"]');
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      tabs.forEach((item) => item.setAttribute('aria-selected','false')); tab.setAttribute('aria-selected','true');
+      const [number,title,copy] = stages[Number(tab.dataset.stage)];
+      document.querySelector('#stage-number').textContent=number; document.querySelector('#stage-title').textContent=title; document.querySelector('#stage-copy').textContent=copy;
+    }));
+    const sliders = ['impact','feasibility','risk'];
+    function evaluate() {
+      const impact=Number(document.querySelector('#impact').value), feasibility=Number(document.querySelector('#feasibility').value), risk=Number(document.querySelector('#risk').value);
+      sliders.forEach((id) => document.querySelector(`#${id}-value`).textContent=`${document.querySelector(`#${id}`).value}/5`);
+      const score=impact+feasibility-risk;
+      let title='Validar antes de escalar', copy='El potencial existe, pero faltan evidencias para comprometer una inversión mayor.';
+      if (impact<=2) { title='Replantear el problema'; copy='Aunque sea viable, una iniciativa de bajo impacto difícilmente merece prioridad estratégica.'; }
+      else if (feasibility<=2) { title='Reducir incertidumbre'; copy='Empieza con una prueba acotada sobre datos, integración o capacidad operativa.'; }
+      else if (risk>=4) { title='Diseñar controles primero'; copy='El potencial no compensa avanzar sin responsables, límites y mitigaciones explícitas.'; }
+      else if (score>=6) { title='Candidato a piloto'; copy='Impacto y factibilidad justifican validar el caso con usuarios y condiciones reales.'; }
+      document.querySelector('#verdict-title').textContent=title; document.querySelector('#verdict-copy').textContent=copy;
+    }
+    sliders.forEach((id) => document.querySelector(`#${id}`).addEventListener('input',evaluate)); evaluate();
+  </script>
+<p>PoC significa Proof of Concept o prueba de concepto</p>
+</body>
+</html>
+
