@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Diseña prompts como especificaciones operativas: estructura, pruebas, versiones y controles más allá del modelo.">
+  <title>Del prompt improvisado al prompt de producción · IA aplicada</title>
+  <link rel="canonical" href="https://jgoitia-art.github.io/ia-aplicada-interactiva/prompt-produccion/">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="IA aplicada">
+  <meta property="og:url" content="https://jgoitia-art.github.io/ia-aplicada-interactiva/prompt-produccion/">
+  <meta property="og:title" content="Del prompt improvisado al prompt de producción">
+  <meta property="og:description" content="Una arquitectura práctica para diseñar, probar y gobernar instrucciones de IA.">
+  <meta property="og:image" content="https://jgoitia-art.github.io/ia-aplicada-interactiva/prompt-produccion/social-preview.png">
+  <meta property="og:image:secure_url" content="https://jgoitia-art.github.io/ia-aplicada-interactiva/prompt-produccion/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="2400">
+  <meta property="og:image:height" content="1260">
+  <meta property="og:image:alt" content="Un prompt de producción se diseña, se prueba, se versiona y se monitoriza.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Del prompt improvisado al prompt de producción">
+  <meta name="twitter:description" content="Cinco piezas, una batería de pruebas y controles fuera del modelo.">
+  <meta name="twitter:image" content="https://jgoitia-art.github.io/ia-aplicada-interactiva/prompt-produccion/social-preview.png">
+  <style>
+    :root{--ink:#15202b;--night:#0d1824;--blue:#3267ff;--cyan:#45d9d0;--lime:#d8f36a;--coral:#ff7d5d;--paper:#fffdf8;--fog:#eef1ee;--muted:#66727c;--line:#d8ddd9;--shadow:0 22px 60px rgba(13,24,36,.13)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--fog);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}button{font:inherit;touch-action:manipulation}.hero{min-height:82vh;display:grid;place-items:end start;position:relative;isolation:isolate;overflow:hidden;padding:clamp(32px,7vw,96px);color:#fff;background:var(--night)}.hero:before{content:"";position:absolute;z-index:-2;width:min(67vw,860px);aspect-ratio:1;right:-13vw;top:-32%;border-radius:20%;transform:rotate(22deg);background:linear-gradient(135deg,var(--blue),var(--cyan) 48%,var(--lime));filter:saturate(1.1)}.hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,var(--night) 9%,rgba(13,24,36,.94) 54%,rgba(13,24,36,.12))}.hero-content{max-width:990px}.eyebrow{color:var(--cyan);font-size:.78rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}h1{max-width:940px;margin:.2em 0;font-size:clamp(3rem,7.2vw,7rem);line-height:.9;letter-spacing:-.06em}.lede{max-width:760px;margin:25px 0 0;color:rgba(255,255,255,.8);font-size:clamp(1.08rem,2vw,1.5rem)}.formula{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:32px;font-weight:780}.formula span{padding:7px 11px;border:1px solid rgba(255,255,255,.2);border-radius:4px}.formula i{width:18px;height:2px;background:var(--lime)}main{width:min(1160px,calc(100% - 36px));margin:auto;padding:78px 0 92px}h2{margin:0 0 16px;font-size:clamp(2rem,4.2vw,3.7rem);line-height:1.02;letter-spacing:-.047em}.intro{display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:start;margin-bottom:78px}.intro p{max-width:680px;color:var(--muted);font-size:1.14rem}.thesis{padding:28px;border-top:5px solid var(--coral);background:var(--paper);box-shadow:var(--shadow);font-size:1.08rem}.thesis strong{display:block;margin-bottom:8px;color:#d75232;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}.builder{padding:clamp(24px,4vw,44px);background:var(--paper);box-shadow:var(--shadow)}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}.section-head p{max-width:520px;margin:0;color:var(--muted)}.parts{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.parts button{min-height:96px;padding:12px 8px;cursor:pointer;border:1px solid var(--line);border-radius:5px;color:var(--ink);background:#fff;font-weight:820}.parts button span{display:block;margin-bottom:4px;color:var(--blue);font-size:.7rem;letter-spacing:.08em}.parts button:hover,.parts button:focus-visible{border-color:var(--blue);outline:3px solid rgba(50,103,255,.14)}.parts button[aria-selected="true"]{border-color:var(--blue);color:#fff;background:var(--blue)}.parts button[aria-selected="true"] span{color:var(--lime)}.workbench{display:grid;grid-template-columns:.86fr 1.14fr;gap:12px;margin-top:12px}.part-panel{min-height:315px;padding:28px;border:1px solid #cdd8ff;background:linear-gradient(135deg,#eef3ff,#fff)}.part-number{color:var(--blue);font-size:4rem;line-height:1;font-weight:930;letter-spacing:-.07em}.part-panel h3{margin:12px 0 7px;font-size:1.55rem}.part-panel p{margin:0;color:var(--muted)}.part-panel strong{display:block;margin-top:15px;color:#244fc8}.prompt-preview{padding:24px;color:#dce6ea;background:var(--night);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.91rem;overflow:auto}.prompt-preview .label{color:var(--cyan)}.prompt-preview .active{display:block;margin:7px -8px;padding:8px;border-left:3px solid var(--lime);background:rgba(216,243,106,.09);color:#fff}.prompt-preview .dim{display:block;margin:7px 0;color:#83929a}.tests{display:grid;grid-template-columns:.82fr 1.18fr;margin-top:78px;color:#fff;background:var(--night);box-shadow:var(--shadow)}.test-copy{padding:clamp(30px,5vw,55px)}.test-copy p{color:rgba(255,255,255,.7)}.scenario-list{display:grid;gap:9px;margin-top:24px}.scenario{width:100%;display:grid;grid-template-columns:34px 1fr;gap:11px;align-items:start;padding:14px;cursor:pointer;text-align:left;border:1px solid rgba(255,255,255,.16);border-radius:4px;color:#e9eff1;background:rgba(255,255,255,.04)}.scenario:hover,.scenario:focus-visible{border-color:var(--cyan);outline:3px solid rgba(69,217,208,.14)}.scenario[aria-pressed="true"]{border-color:var(--cyan);background:rgba(69,217,208,.1)}.mark{display:grid;place-items:center;width:24px;height:24px;border:2px solid #718089;border-radius:50%;color:transparent;font-weight:900}.scenario[aria-pressed="true"] .mark{border-color:var(--cyan);color:var(--night);background:var(--cyan)}.test-board{display:grid;align-content:center;padding:clamp(30px,5vw,55px);background:rgba(255,255,255,.055)}.score{display:flex;align-items:end;gap:16px}.score strong{font-size:clamp(4.6rem,9vw,8.5rem);line-height:.8;letter-spacing:-.08em;color:var(--lime)}.score span{padding-bottom:6px;color:#c5d0d4;font-weight:760}.meter{height:18px;margin:26px 0 18px;background:rgba(255,255,255,.1)}.meter-fill{height:100%;width:20%;background:linear-gradient(90deg,var(--coral),var(--lime));transition:width .25s ease}.diagnosis{padding:18px;border-left:4px solid var(--coral);background:rgba(0,0,0,.22);color:#dce5e8}.diagnosis strong{display:block;color:#fff;font-size:1.15rem}.small-note{margin:18px 0 0;color:#aebbc0;font-size:.9rem}.lifecycle{margin-top:78px}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.flow article{position:relative;min-height:230px;padding:24px;border-top:5px solid var(--blue);background:var(--paper);box-shadow:0 10px 28px rgba(13,24,36,.08)}.flow article:nth-child(2){border-color:var(--cyan)}.flow article:nth-child(3){border-color:var(--lime)}.flow article:nth-child(4){border-color:var(--coral)}.flow article:nth-child(5){border-color:var(--blue)}.flow .num{color:#dfe3df;font-size:2.8rem;line-height:1;font-weight:930}.flow h3{margin:13px 0 7px;font-size:1.15rem}.flow p{margin:0;color:var(--muted);font-size:.94rem}.defense{display:grid;grid-template-columns:.9fr 1.1fr;gap:32px;align-items:start;margin-top:78px;padding:clamp(28px,5vw,54px);border:1px solid #e6d4cb;background:#fff6f1}.warning-badge{display:inline-block;padding:7px 11px;color:#842f19;background:#ffd3c6;font-size:.75rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.defense h2{margin-top:17px}.defense p{color:var(--muted)}.layers{display:grid;gap:10px}.layer{padding:16px;border-left:5px solid var(--coral);background:var(--paper)}.layer:nth-child(2){border-color:var(--blue)}.layer:nth-child(3){border-color:var(--cyan)}.layer:nth-child(4){border-color:var(--lime)}.layer strong{display:block}.layer span{color:var(--muted);font-size:.92rem}.sources{margin-top:65px;padding-top:26px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}.sources a{color:#3157bf}footer{padding:28px 18px;text-align:center;color:var(--muted);border-top:1px solid var(--line)}@media(max-width:920px){.intro,.tests,.defense,.workbench{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,1fr)}.section-head{display:block}.parts{grid-template-columns:repeat(2,1fr)}}@media(max-width:570px){.hero{padding:28px 20px}.hero-content{max-width:345px}h1{font-size:2.68rem}.lede,.formula{max-width:335px}.flow{grid-template-columns:1fr}.parts{grid-template-columns:1fr 1fr}.part-panel{min-height:0}.prompt-preview{font-size:.78rem}.score strong{font-size:5rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.meter-fill{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">IA aplicada · Entrega 05</div>
+      <h1>Un prompt de producción no se improvisa</h1>
+      <p class="lede">Se diseña como una especificación, se prueba con entradas difíciles y se protege con controles que viven fuera del modelo.</p>
+      <div class="formula"><span>Diseñar</span><i></i><span>Probar</span><i></i><span>Versionar</span><i></i><span>Medir</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="idea-title">
+      <div><div class="eyebrow">La idea central</div><h2 id="idea-title">De frase útil a componente fiable</h2><p>Una instrucción puede funcionar en una demostración y fallar cuando cambia el usuario, falta un dato o aparece una petición fuera de alcance. Producción empieza cuando el comportamiento deja de evaluarse por intuición.</p></div>
+      <aside class="thesis"><strong>Cambio de criterio</strong>No preguntes solo «¿ha respondido bien?». Pregunta «¿qué entradas hemos probado, qué significa aprobar y qué ocurre cuando el modelo falla?».</aside>
+    </section>
+
+    <section class="builder" aria-labelledby="builder-title">
+      <div class="section-head"><div><div class="eyebrow">Arquitectura práctica</div><h2 id="builder-title">Cinco piezas con funciones distintas</h2></div><p>Selecciona cada bloque para ver qué ambigüedad elimina. No es una plantilla universal: es una forma de hacer explícitas las decisiones.</p></div>
+      <div class="parts" role="tablist" aria-label="Piezas de un prompt de producción">
+        <button role="tab" aria-selected="true" data-part="0"><span>01</span>Objetivo</button>
+        <button role="tab" aria-selected="false" data-part="1"><span>02</span>Contexto</button>
+        <button role="tab" aria-selected="false" data-part="2"><span>03</span>Reglas</button>
+        <button role="tab" aria-selected="false" data-part="3"><span>04</span>Formato</button>
+        <button role="tab" aria-selected="false" data-part="4"><span>05</span>Criterios</button>
+      </div>
+      <div class="workbench">
+        <div class="part-panel" role="tabpanel" aria-live="polite"><div class="part-number" id="part-number">01</div><h3 id="part-title">Define la tarea observable</h3><p id="part-copy">Expresa la transformación que debe realizarse y para quién. Evita objetivos vagos como «analiza esto bien».</p><strong id="part-question">Pregunta de diseño: ¿qué acción concreta debe producir la salida?</strong></div>
+        <div class="prompt-preview" aria-label="Ejemplo de estructura del prompt"><span class="label"># OBJETIVO</span><span class="active" data-line="0">Clasifica el correo y redacta una respuesta útil para el agente de soporte.</span><span class="label"># CONTEXTO</span><span class="dim" data-line="1">Política aplicable, datos del caso y límites de conocimiento.</span><span class="label"># REGLAS</span><span class="dim" data-line="2">No inventes estados; deriva cuando falte información crítica.</span><span class="label"># FORMATO</span><span class="dim" data-line="3">Devuelve categoría, prioridad, borrador y motivo de derivación.</span><span class="label"># CRITERIOS</span><span class="dim" data-line="4">Correcto si respeta política, usa solo datos disponibles y cumple el esquema.</span></div>
+      </div>
+    </section>
+
+    <section class="tests" aria-labelledby="tests-title">
+      <div class="test-copy"><div class="eyebrow">Batería mínima</div><h2 id="tests-title">Una respuesta correcta no valida el prompt</h2><p>Marca los escenarios incluidos en tus pruebas. El caso ideal demuestra capacidad; los demás revelan fragilidad.</p><div class="scenario-list">
+        <button class="scenario" aria-pressed="true"><span class="mark">✓</span><span><strong>Caso esperado</strong><br>Entrada completa y dentro de alcance.</span></button>
+        <button class="scenario" aria-pressed="false"><span class="mark">✓</span><span><strong>Información ausente</strong><br>Falta un dato necesario para decidir.</span></button>
+        <button class="scenario" aria-pressed="false"><span class="mark">✓</span><span><strong>Ambigüedad</strong><br>Dos interpretaciones razonables compiten.</span></button>
+        <button class="scenario" aria-pressed="false"><span class="mark">✓</span><span><strong>Fuera de alcance</strong><br>La petición no pertenece a la tarea.</span></button>
+        <button class="scenario" aria-pressed="false"><span class="mark">✓</span><span><strong>Entrada adversa</strong><br>Intenta cambiar reglas o extraer información.</span></button>
+      </div></div>
+      <div class="test-board"><div class="score"><strong id="score">1/5</strong><span>familias de prueba cubiertas</span></div><div class="meter"><div class="meter-fill" id="meter"></div></div><div class="diagnosis"><strong id="diagnosis-title">Demostración, no validación</strong><span id="diagnosis-copy">El happy path confirma que el modelo puede hacerlo. Aún no sabes cómo falla.</span></div><p class="small-note">La cobertura no garantiza calidad: cada caso necesita un resultado esperado y un criterio de aceptación.</p></div>
+    </section>
+
+    <section class="lifecycle" aria-labelledby="life-title"><div class="eyebrow">Ciclo de producción</div><h2 id="life-title">El prompt también tiene ciclo de vida</h2><div class="flow">
+      <article><div class="num">01</div><h3>Especifica</h3><p>Define tarea, entradas, salida esperada y riesgo de error.</p></article>
+      <article><div class="num">02</div><h3>Prueba</h3><p>Construye casos reales, límite y adversos antes de optimizar.</p></article>
+      <article><div class="num">03</div><h3>Versiona</h3><p>Registra qué cambió, por qué y contra qué conjunto se evaluó.</p></article>
+      <article><div class="num">04</div><h3>Despliega</h3><p>Fija modelo, parámetros, permisos y validaciones del entorno.</p></article>
+      <article><div class="num">05</div><h3>Monitoriza</h3><p>Mide calidad, errores, coste, latencia y nuevos patrones de entrada.</p></article>
+    </div></section>
+
+    <section class="defense" aria-labelledby="defense-title"><div><span class="warning-badge">Error frecuente</span><h2 id="defense-title">Convertir el prompt en la única barrera</h2><p>Una regla escrita dentro del prompt orienta al modelo, pero no equivale a un permiso técnico ni a una validación independiente. Cuanto mayor sea el impacto de la salida, más importante es separar las capas.</p></div><div class="layers">
+      <div class="layer"><strong>Prompt</strong><span>Alcance, conducta esperada y condiciones para rechazar o derivar.</span></div>
+      <div class="layer"><strong>Entrada</strong><span>Separación entre instrucciones y datos; filtrado y límites de contexto.</span></div>
+      <div class="layer"><strong>Salida</strong><span>Esquema, reglas de negocio, citas y comprobaciones antes de usar.</span></div>
+      <div class="layer"><strong>Acción</strong><span>Permisos mínimos, confirmación humana y registro de operaciones sensibles.</span></div>
+    </div></section>
+
+    <section class="sources" aria-label="Referencias públicas">Criterios contrastados con documentación oficial de <a href="https://developers.openai.com/api/docs/guides/prompt-engineering">OpenAI</a>, <a href="https://ai.google.dev/gemini-api/docs/prompting-strategies">Google</a>, <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview">Anthropic</a> y la guía de prevención de prompt injection de <a href="https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html">OWASP</a>.</section>
+  </main>
+  <footer>IA aplicada · Entrega 5 de 45</footer>
+  <script>
+    const parts=[
+      ["01","Define la tarea observable","Expresa la transformación que debe realizarse y para quién. Evita objetivos vagos como «analiza esto bien».","Pregunta de diseño: ¿qué acción concreta debe producir la salida?"],
+      ["02","Aporta solo el contexto necesario","Delimita datos, políticas y conocimiento disponible. Diferencia con claridad la información de las instrucciones.","Pregunta de diseño: ¿qué necesita saber y qué no debe asumir?"],
+      ["03","Explicita límites y decisiones","Indica qué hacer ante falta de datos, contradicciones, solicitudes fuera de alcance o acciones sensibles.","Pregunta de diseño: ¿cuándo debe continuar, preguntar, rechazar o derivar?"],
+      ["04","Haz verificable la salida","Define campos, orden, longitud o esquema. Para estructuras complejas, complementa el prompt con salidas estructuradas y validación técnica.","Pregunta de diseño: ¿puede otro sistema comprobar la respuesta?"],
+      ["05","Describe qué significa aprobar","Convierte calidad en criterios observables y añade ejemplos cuando ayuden a calibrar tono, alcance o estructura.","Pregunta de diseño: ¿cómo distinguirás una salida válida de una convincente?" ]
+    ];
+    const tabs=document.querySelectorAll('[role="tab"]');
+    tabs.forEach(tab=>tab.addEventListener('click',()=>{tabs.forEach(x=>x.setAttribute('aria-selected','false'));tab.setAttribute('aria-selected','true');const i=Number(tab.dataset.part),p=parts[i];document.querySelector('#part-number').textContent=p[0];document.querySelector('#part-title').textContent=p[1];document.querySelector('#part-copy').textContent=p[2];document.querySelector('#part-question').textContent=p[3];document.querySelectorAll('[data-line]').forEach(line=>{line.className=Number(line.dataset.line)===i?'active':'dim'})}));
+    const scenarios=document.querySelectorAll('.scenario');
+    function diagnose(){const n=[...scenarios].filter(x=>x.getAttribute('aria-pressed')==='true').length;document.querySelector('#score').textContent=`${n}/5`;document.querySelector('#meter').style.width=`${n*20}%`;let title='Demostración, no validación',copy='El happy path confirma que el modelo puede hacerlo. Aún no sabes cómo falla.';if(n>=2){title='Primeros límites visibles';copy='Ya observas algo más que el caso ideal, pero quedan fallos previsibles sin cubrir.'}if(n>=4){title='Cobertura útil para iterar';copy='Puedes comparar versiones con una base diversa. Añade resultados esperados y umbrales.'}if(n===5){title='Batería mínima completa';copy='Ahora repítela al cambiar prompt, modelo, parámetros, herramientas o datos.'}document.querySelector('#diagnosis-title').textContent=title;document.querySelector('#diagnosis-copy').textContent=copy}
+    scenarios.forEach(button=>button.addEventListener('click',()=>{button.setAttribute('aria-pressed',button.getAttribute('aria-pressed')==='true'?'false':'true');diagnose()}));diagnose();
+  </script>
+</body>
+</html>
